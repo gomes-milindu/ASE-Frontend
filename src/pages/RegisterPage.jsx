@@ -1,4 +1,5 @@
 import { Icon } from '../components/Icon'
+import { PrimaryButton } from '../components/PrimaryButton'
 import { TextField } from '../components/TextField'
 
 export function RegisterPage() {
@@ -16,7 +17,13 @@ export function RegisterPage() {
         <div>
           <div className="section-heading">Personal information</div>
           <div className="form-fields">
-            <TextField label="Full name" icon="user" placeholder="Enter your full name" />
+            <TextField label="Username" icon="user" placeholder="e.g. john_doe" />
+            <div className="name-fields">
+              <TextField label="First name" placeholder="John" />
+              <TextField label="Last name" placeholder="Doe" />
+            </div>
+            <TextField label="Address" icon="location" placeholder="123 Main Street, City" />
+            <TextField label="National ID number" icon="idCard" placeholder="e.g. 1990199001234" />
           </div>
 
           <div className="section-heading section-heading--separated">Contact details</div>
@@ -36,7 +43,7 @@ export function RegisterPage() {
             <span>I agree to the <a href="#terms">Terms of Service</a> and <a href="#privacy">Privacy Policy</a></span>
           </label>
 
-          <a className="primary-button" href="#verify-mobile">Create account</a>
+          <PrimaryButton href="#verify-email">Create account</PrimaryButton>
         </div>
 
         <p className="login-prompt">Already have an account? <a href="#login">Log in</a></p>

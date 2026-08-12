@@ -1,7 +1,9 @@
-.app-page--register, .app-page--otp { display: none; }
+.app-page--register, .app-page--email-otp, .app-page--otp { display: none; }
 .app-pages:has(.app-page--register:target) .app-page--splash,
+.app-pages:has(.app-page--email-otp:target) .app-page--splash,
 .app-pages:has(.app-page--otp:target) .app-page--splash { display: none; }
 .app-pages:has(.app-page--register:target) .app-page--register,
+.app-pages:has(.app-page--email-otp:target) .app-page--email-otp,
 .app-pages:has(.app-page--otp:target) .app-page--otp { display: block; }
 
 .splash-page { min-height: 100svh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 32px; color: #fff; background: #16a34a; }
@@ -37,6 +39,7 @@
 .signup-header h1 { margin: 7px 0 9px; color: #f8faf8; font-size: clamp(var(--font-size-2xl), 6vw, 34px); line-height: 1.12; letter-spacing: -.04em; }
 .signup-header p:not(.eyebrow) { margin: 0; color: #a4b3a7; font-size: var(--font-size-base); line-height: 1.5; }
 .form-fields { display: grid; gap: 16px; margin-top: 14px; }
+.name-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .section-heading--separated { margin-top: 28px; }
 .field { display: grid; gap: 6px; }
 .field__label { color: #f1f5f2; font-size: var(--font-size-sm); font-weight: 600; }
@@ -45,15 +48,12 @@
 .field__icon { color: #a4b3a7; display: inline-flex; flex: 0 0 auto; }
 .field input { width: 100%; min-width: 0; padding: 13px 0; border: 0; outline: 0; color: #f8faf8; background: transparent; font: inherit; font-size: var(--font-size-base); }
 .field input::placeholder { color: #86968a; opacity: 1; }
-.visibility-button { display: inline-flex; padding: 4px; border: 0; color: #a4b3a7; background: transparent; cursor: pointer; border-radius: 6px; }
-.visibility-button:hover { color: #16a34a; }
 .terms { display: flex; align-items: flex-start; gap: 10px; margin-top: 22px; color: #a4b3a7; font-size: var(--font-size-sm); line-height: 1.5; cursor: pointer; }
 .terms input { width: 18px; height: 18px; flex: 0 0 auto; margin: 1px 0 0; accent-color: #16a34a; cursor: pointer; }
 .terms a { text-decoration: underline; text-underline-offset: 2px; }
 .primary-button { width: 100%; display: block; margin-top: 26px; padding: 15px 20px; border: 0; border-radius: 16px; color: #fff; background: #16a34a; font: inherit; font-weight: 700; text-align: center; text-decoration: none; cursor: pointer; box-shadow: 0 8px 16px rgba(22, 163, 74, .18); transition: background .2s, transform .2s; }
 .primary-button:hover { background: #15803d; transform: translateY(-1px); }
-.primary-button:focus-visible, a:focus-visible, .visibility-button:focus-visible { outline: 3px solid rgba(22, 163, 74, .35); outline-offset: 3px; }
-.form-message { min-height: 20px; margin: 10px 0 0; color: #a4b3a7; font-size: var(--font-size-sm); text-align: center; }
+.primary-button:focus-visible, a:focus-visible { outline: 3px solid rgba(22, 163, 74, .35); outline-offset: 3px; }
 .login-prompt { margin: 20px 0 0; color: #a4b3a7; font-size: var(--font-size-sm); text-align: center; }
 
 .otp-page { min-height: 100svh; display: grid; place-items: center; padding: 32px 20px; background: #090d0a; }
@@ -64,6 +64,9 @@
 .verification-stepper__badge { width: 24px; height: 24px; display: grid; place-items: center; border-radius: 50%; color: #fff; background: #16a34a; font-weight: 700; }
 .verification-stepper__line { height: 1px; flex: 1; background: #16a34a; }
 .verification-stepper__step--current { color: #16a34a; font-weight: 700; }
+.verification-stepper__step--pending { color: #a4b3a7; }
+.verification-stepper__step--pending .verification-stepper__badge { color: #a4b3a7; background: #14231b; border: 1px solid #2a4133; }
+.verification-stepper__line--pending { background: #2a4133; }
 .otp-header { margin: 32px 0; text-align: center; }
 .otp-header__icon { width: 80px; height: 80px; display: grid; place-items: center; margin: 0 auto 24px; color: #4ade80; background: #14231b; border-radius: 16px; }
 .otp-header h1 { margin: 0 0 8px; color: #f8faf8; font-size: var(--font-size-2xl); letter-spacing: -.04em; line-height: 1.2; }
@@ -88,11 +91,11 @@
   .signup-header { margin: 32px 0; }
   .signup-header h1 { font-size: var(--font-size-2xl); }
   .form-fields { gap: 16px; margin-top: 16px; }
+  .name-fields { gap: 12px; }
   .section-heading--separated { margin-top: 32px; }
   .field__control { min-height: 52px; }
   .terms { margin-top: 24px; }
   .primary-button { margin-top: 24px; padding: 16px 20px; }
-  .form-message { margin-top: 8px; }
   .login-prompt { margin-top: 24px; }
   .otp-page { display: block; padding: 0; background: #090d0a; }
   .otp-card { width: 100%; min-height: 100dvh; padding: 24px 24px 40px; border: 0; border-radius: 0; box-shadow: none; }
