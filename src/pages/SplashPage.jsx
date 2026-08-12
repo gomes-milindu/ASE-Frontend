@@ -1,6 +1,15 @@
+import { useEffect } from 'react'
 import { AppLogo } from '../components/AppLogo'
 
 export function SplashPage() {
+  useEffect(() => {
+    const redirectTimer = window.setTimeout(() => {
+      window.location.hash = 'register'
+    }, 3000)
+
+    return () => window.clearTimeout(redirectTimer)
+  }, [])
+
   return (
     <main className="splash-page" aria-label="Verifly">
       <div className="splash-page__content">
