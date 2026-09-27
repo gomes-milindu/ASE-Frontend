@@ -5,7 +5,7 @@ export function SplashPage() {
   useEffect(() => {
     const redirectTimer = window.setTimeout(() => {
       window.location.hash = 'register'
-    }, 3000)
+    }, 10000)
 
     return () => window.clearTimeout(redirectTimer)
   }, [])
